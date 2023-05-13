@@ -66,7 +66,7 @@ class CallToPrivateFunctionRule implements Rule
 		}
 
 		return [sprintf(
-			'Call to private function %s().',
+			'Call to internal function %s().',
 			$function->getName()
 		)];
 	}
