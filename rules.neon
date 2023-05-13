@@ -1,0 +1,20 @@
+parameters:
+	deprecationRulesInstalled: true
+
+rules:
+	- Swissspidy\PHPStan\Rules\NoPrivate\AccessPrivatePropertyRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\AccessPrivateStaticPropertyRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\CallToPrivateFunctionRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\CallToPrivateMethodRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\CallToPrivateStaticMethodRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\FetchingClassConstOfPrivateClassRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\FetchingPrivateConstRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\ImplementationOfPrivateInterfaceRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\InheritanceOfPrivateClassRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\InheritanceOfPrivateInterfaceRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\InstantiationOfPrivateClassRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\TypeHintPrivateInClassMethodSignatureRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\TypeHintPrivateInClosureSignatureRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\TypeHintPrivateInFunctionSignatureRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\UsageOfPrivateCastRule
+	- Swissspidy\PHPStan\Rules\NoPrivate\UsageOfPrivateTraitRule
