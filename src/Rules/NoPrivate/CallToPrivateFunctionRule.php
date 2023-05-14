@@ -62,7 +62,7 @@ class CallToPrivateFunctionRule implements Rule
 			$docComment
 		);
 
-		if (!$resolvedPhpDoc || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+		if (!PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 			return [];
 		}
 

@@ -100,15 +100,14 @@ class CallToPrivateStaticMethodRule implements Rule
 				continue;
 			}
 
-			// FIXME: This returns an empty instance.
 			$resolvedPhpDoc = $this->fileTypeMapper->getResolvedPhpDoc(
 				$methodReflection->getDeclaringClass()->getFileName(),
-				$scope->isInClass() ? $scope->getClassReflection()->getName() : null,
-				$scope->isInTrait() ? $scope->getTraitReflection()->getName() : null,
+				$methodReflection->getDeclaringClass()->getName(),
+				null,
 				$methodReflection->getName(),
 				$docComment
 			);
-			if (!$resolvedPhpDoc || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+			if (!PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				continue;
 			}
 
