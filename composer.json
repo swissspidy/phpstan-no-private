@@ -47,8 +47,9 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"scripts": {
-		"lint": "vendor/bin/phpcs",
-		"lint:fix": "vendor/bin/phpcbf",
+		"cs": "vendor/bin/phpcs",
+		"cs:fix": "vendor/bin/phpcbf",
+		"lint": "vendor/bin/parallel-lint --colors src tests",
 		"phpstan": "vendor/bin/phpstan analyse -l 8 -c phpstan.neon src tests",
 		"test": "vendor/bin/phpunit"
 	}
