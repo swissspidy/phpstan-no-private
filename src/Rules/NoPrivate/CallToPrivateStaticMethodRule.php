@@ -85,7 +85,7 @@ class CallToPrivateStaticMethodRule implements Rule
 			}
 
 			$resolvedPhpDoc = $class->getResolvedPhpDoc();
-			if (($class->isInternal() || ( $resolvedPhpDoc && PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)))) {
+			if ($resolvedPhpDoc && PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				$errors[] = sprintf(
 					'Call to method %s() of private class %s.',
 					$methodReflection->getName(),
@@ -100,14 +100,15 @@ class CallToPrivateStaticMethodRule implements Rule
 				continue;
 			}
 
+			// FIXME: This returns an empty instance.
 			$resolvedPhpDoc = $this->fileTypeMapper->getResolvedPhpDoc(
-				$scope->getFile(),
+				$methodReflection->getDeclaringClass()->getFileName(),
 				$scope->isInClass() ? $scope->getClassReflection()->getName() : null,
 				$scope->isInTrait() ? $scope->getTraitReflection()->getName() : null,
 				$methodReflection->getName(),
 				$docComment
 			);
-			if (!$resolvedPhpDoc || (!$methodReflection->isInternal() && !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc))) {
+			if (!$resolvedPhpDoc || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				continue;
 			}
 

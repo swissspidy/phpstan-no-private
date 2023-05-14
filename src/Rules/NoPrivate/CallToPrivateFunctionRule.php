@@ -55,13 +55,14 @@ class CallToPrivateFunctionRule implements Rule
 		}
 
 		$resolvedPhpDoc = $this->fileTypeMapper->getResolvedPhpDoc(
-			$scope->getFile(),
+			$function->getFileName(),
 			$scope->isInClass() ? $scope->getClassReflection()->getName() : null,
 			$scope->isInTrait() ? $scope->getTraitReflection()->getName() : null,
 			$function->getName(),
 			$docComment
 		);
-		if (!$resolvedPhpDoc || (!$function->isInternal() && !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc))) {
+
+		if (!$resolvedPhpDoc || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 			return [];
 		}
 
