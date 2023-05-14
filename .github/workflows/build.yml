@@ -106,7 +106,7 @@ jobs:
       - name: "Install PHP"
         uses: "shivammathur/setup-php@v2"
         with:
-          coverage: ${{ matrix.coverage && "xdebug" || "none" }}
+          coverage: ${{ matrix.coverage && 'xdebug' || 'none' }}
           php-version: "${{ matrix.php-version }}"
 
       - name: "Install lowest dependencies"
