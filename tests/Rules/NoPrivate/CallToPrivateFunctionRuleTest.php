@@ -24,11 +24,11 @@ class CallToPrivateFunctionRuleTest extends RuleTestCase
 			[__DIR__ . '/data/call-to-private-function.php'],
 			[
 				[
-					'Call to private function CheckPrivateFunctionCall\private_function().',
+					'Call to private/internal function CheckPrivateFunctionCall\private_function().',
 					8,
 				],
 				[
-					'Call to private function CheckPrivateFunctionCall\private_function().',
+					'Call to private/internal function CheckPrivateFunctionCall\private_function().',
 					9,
 				],
 			]

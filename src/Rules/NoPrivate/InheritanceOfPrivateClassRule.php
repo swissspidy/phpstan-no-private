@@ -58,13 +58,13 @@ class InheritanceOfPrivateClassRule implements Rule
 
 			if (!$class->isAnonymous()) {
 				$errors[] = sprintf(
-					'Class %s extends private class %s.',
+					'Class %s extends private/internal class %s.',
 					$className,
 					$parentClassName
 				);
 			} else {
 				$errors[] = sprintf(
-					'Anonymous class extends private class %s.',
+					'Anonymous class extends private/internal class %s.',
 					$parentClassName
 				);
 			}

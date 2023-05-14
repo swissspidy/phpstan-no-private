@@ -81,7 +81,7 @@ class InstantiationOfPrivateClassRule implements Rule
 			}
 
 			$errors[] = sprintf(
-				'Instantiation of private class %s.',
+				'Instantiation of private/internal class %s.',
 				$referencedClass
 			);
 		}

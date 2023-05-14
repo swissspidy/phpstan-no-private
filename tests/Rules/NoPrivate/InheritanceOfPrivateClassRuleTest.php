@@ -23,7 +23,7 @@ class InheritanceOfPrivateClassRuleTest extends RuleTestCase
 			[__DIR__ . '/data/inheritance-of-private-class-in-classes.php'],
 			[
 				[
-					'Class InheritanceOfPrivateClass\Bar2 extends private class InheritanceOfPrivateClass\PrivateFoo.',
+					'Class InheritanceOfPrivateClass\Bar2 extends private/internal class InheritanceOfPrivateClass\PrivateFoo.',
 					10,
 				],
 			]
@@ -37,7 +37,7 @@ class InheritanceOfPrivateClassRuleTest extends RuleTestCase
 			[__DIR__ . '/data/inheritance-of-private-class-in-anonymous-classes.php'],
 			[
 				[
-					'Anonymous class extends private class InheritanceOfPrivateClass\PrivateFoo.',
+					'Anonymous class extends private/internal class InheritanceOfPrivateClass\PrivateFoo.',
 					9,
 				],
 			]

@@ -70,7 +70,7 @@ class CallToPrivateMethodRule implements Rule
 				}
 
 				return [sprintf(
-					'Call to private method %s() of class %s.',
+					'Call to private/internal method %s() of class %s.',
 					$methodReflection->getName(),
 					$methodReflection->getDeclaringClass()->getName()
 				)];

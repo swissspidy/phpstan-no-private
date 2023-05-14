@@ -24,7 +24,7 @@ class CallToPrivateMethodRuleTest extends RuleTestCase
 			[__DIR__ . '/data/call-to-private-method.php'],
 			[
 				[
-					'Call to private method privateFoo() of class CheckPrivateMethodCall\Foo.',
+					'Call to private/internal method privateFoo() of class CheckPrivateMethodCall\Foo.',
 					7,
 				],
 			]

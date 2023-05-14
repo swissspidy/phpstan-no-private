@@ -24,7 +24,7 @@ class InstantiationOfPrivateClassRuleTest extends RuleTestCase
 			[__DIR__ . '/data/instantiation-of-private-class.php'],
 			[
 				[
-					'Instantiation of private class InstantiationOfPrivateClass\PrivateFoo.',
+					'Instantiation of private/internal class InstantiationOfPrivateClass\PrivateFoo.',
 					6,
 				],
 			]

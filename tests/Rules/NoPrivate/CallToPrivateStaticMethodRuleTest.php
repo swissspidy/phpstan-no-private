@@ -25,39 +25,39 @@ class CallToPrivateStaticMethodRuleTest extends RuleTestCase
 			[__DIR__ . '/data/call-to-private-static-method.php'],
 			[
 				[
-					'Call to private method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
+					'Call to private/internal method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
 					6,
 				],
 				[
-					'Call to method foo() of private class CheckPrivateStaticMethodCall\Foo.',
+					'Call to method foo() of private/internal class CheckPrivateStaticMethodCall\Foo.',
 					10,
 				],
 				[
-					'Call to method privateFoo() of private class CheckPrivateStaticMethodCall\Foo.',
+					'Call to method privateFoo() of private/internal class CheckPrivateStaticMethodCall\Foo.',
 					11,
 				],
 				[
-					'Call to private method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
+					'Call to private/internal method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
 					19,
 				],
 				[
-					'Call to private method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
+					'Call to private/internal method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
 					28,
 				],
 				[
-					'Call to private method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
+					'Call to private/internal method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
 					44,
 				],
 				[
-					'Call to private method privateOtherFoo() of class CheckPrivateStaticMethodCall\Child.',
+					'Call to private/internal method privateOtherFoo() of class CheckPrivateStaticMethodCall\Child.',
 					45,
 				],
 				[
-					'Call to private method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
+					'Call to private/internal method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
 					46,
 				],
 				[
-					'Call to private method privateOtherFoo() of class CheckPrivateStaticMethodCall\Child.',
+					'Call to private/internal method privateOtherFoo() of class CheckPrivateStaticMethodCall\Child.',
 					47,
 				],
 			]
