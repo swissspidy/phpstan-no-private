@@ -92,12 +92,12 @@ jobs:
         coverage:
           - false
         include:
-        - php: "8.2"
-          coverage: true
-          dependencies: "lowest"
-        - php: "8.2"
-          coverage: true
-          dependencies: "highest"
+          - php: "8.2"
+            coverage: true
+            dependencies: "lowest"
+          - php: "8.2"
+            coverage: true
+            dependencies: "highest"
 
     steps:
       - name: "Checkout"
