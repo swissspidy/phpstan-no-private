@@ -47,3 +47,29 @@ class Child extends Foo
 		static::privateOtherFoo();
 	}
 }
+
+class Baz
+{
+
+	public static function publicBaz()
+	{
+		self::privateBaz();
+		self::reallyPrivateBaz();
+	}
+
+	/**
+	 * @access private
+	 */
+	public static function privateBaz()
+	{
+
+	}
+
+	/**
+	 * @access private
+	 */
+	private static function reallyPrivateBaz()
+	{
+
+	}
+}

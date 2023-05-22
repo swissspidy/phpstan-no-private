@@ -49,16 +49,8 @@ class CallToPrivateStaticMethodRuleTest extends RuleTestCase
 					44,
 				],
 				[
-					'Call to private/internal method privateOtherFoo() of class CheckPrivateStaticMethodCall\Child.',
-					45,
-				],
-				[
 					'Call to private/internal method privateFoo() of class CheckPrivateStaticMethodCall\Foo.',
 					46,
-				],
-				[
-					'Call to private/internal method privateOtherFoo() of class CheckPrivateStaticMethodCall\Child.',
-					47,
 				],
 			]
 		);
