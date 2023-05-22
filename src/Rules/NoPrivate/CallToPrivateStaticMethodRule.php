@@ -84,6 +84,10 @@ class CallToPrivateStaticMethodRule implements Rule
 				continue;
 			}
 
+			if ($methodReflection->isPrivate()) {
+				continue;
+			}
+
 			$resolvedPhpDoc = $class->getResolvedPhpDoc();
 			if ($resolvedPhpDoc && PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				$errors[] = sprintf(
@@ -107,7 +111,16 @@ class CallToPrivateStaticMethodRule implements Rule
 				$methodReflection->getName(),
 				$docComment
 			);
+
 			if (!PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+				continue;
+			}
+
+			if (
+				$scope->isInClass() &&
+				$class->getName() === $methodReflection->getDeclaringClass()->getName() &&
+				$class->getName() === $scope->getClassReflection()->getName()
+			) {
 				continue;
 			}
 

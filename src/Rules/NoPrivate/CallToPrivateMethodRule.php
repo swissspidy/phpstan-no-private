@@ -51,6 +51,10 @@ class CallToPrivateMethodRule implements Rule
 				$classReflection = $this->reflectionProvider->getClass($referencedClass);
 				$methodReflection = $classReflection->getMethod($methodName, $scope);
 
+				if ($methodReflection->isPrivate()) {
+					continue;
+				}
+
 				$docComment = $methodReflection->getDocComment();
 
 				if (!$docComment) {
@@ -66,6 +70,14 @@ class CallToPrivateMethodRule implements Rule
 				);
 
 				if (!PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+					continue;
+				}
+
+
+				if (
+					$scope->isInClass() &&
+					$classReflection->getName() === $methodReflection->getDeclaringClass()->getName()
+				) {
 					continue;
 				}
 

@@ -17,4 +17,11 @@ class Foo
 	{
 
 	}
+	/**
+	 * @access private
+	 */
+	private function reallyPrivateFoo()
+	{
+
+	}
 }
