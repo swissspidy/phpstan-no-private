@@ -22,6 +22,7 @@ jobs:
           - "8.0"
           - "8.1"
           - "8.2"
+          - "8.3"
 
     steps:
       - name: "Checkout"
@@ -59,7 +60,7 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           coverage: "none"
-          php-version: "8.0"
+          php-version: "latest"
 
       - name: "Validate Composer"
         run: "composer validate"
@@ -86,6 +87,7 @@ jobs:
           - "7.4"
           - "8.0"
           - "8.1"
+          - "8.3"
         dependencies:
           - "lowest"
           - "highest"
@@ -149,6 +151,7 @@ jobs:
           - "8.0"
           - "8.1"
           - "8.2"
+          - "8.3"
         dependencies:
           - "lowest"
           - "highest"
