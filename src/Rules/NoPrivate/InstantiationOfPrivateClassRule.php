@@ -10,6 +10,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\ClassNotFoundException;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Rules\RuleLevelHelper;
 use PHPStan\Type\ErrorType;
 use function sprintf;
@@ -80,10 +81,14 @@ class InstantiationOfPrivateClassRule implements Rule
 				continue;
 			}
 
-			$errors[] = sprintf(
-				'Instantiation of private/internal class %s.',
-				$referencedClass
-			);
+			$errors[] = RuleErrorBuilder::message(
+				sprintf(
+					'Instantiation of private/internal class %s.',
+					$referencedClass
+				)
+			)
+                ->identifier('no.private.class')
+                ->build();
 		}
 
 		return $errors;

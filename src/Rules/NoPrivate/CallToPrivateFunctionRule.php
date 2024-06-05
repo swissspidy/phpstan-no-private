@@ -9,6 +9,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\FunctionNotFoundException;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\FileTypeMapper;
 use function sprintf;
 
@@ -66,10 +67,13 @@ class CallToPrivateFunctionRule implements Rule
 			return [];
 		}
 
-		return [sprintf(
-			'Call to private/internal function %s().',
-			$function->getName()
-		)];
+		return [
+			RuleErrorBuilder::message(
+				sprintf('Call to private/internal function %s().', $function->getName())
+			)
+	            ->identifier('no.private.function')
+	            ->build()
+		];
 	}
 
 }
