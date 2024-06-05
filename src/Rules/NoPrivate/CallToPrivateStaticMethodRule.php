@@ -11,6 +11,7 @@ use PHPStan\Broker\ClassNotFoundException;
 use PHPStan\Reflection\MissingMethodFromReflectionException;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Rules\RuleLevelHelper;
 use PHPStan\Type\ErrorType;
 use PHPStan\Type\FileTypeMapper;
@@ -90,11 +91,15 @@ class CallToPrivateStaticMethodRule implements Rule
 
 			$resolvedPhpDoc = $class->getResolvedPhpDoc();
 			if ($resolvedPhpDoc && PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
-				$errors[] = sprintf(
-					'Call to method %s() of private/internal class %s.',
-					$methodReflection->getName(),
-					$methodReflection->getDeclaringClass()->getName()
-				);
+				$errors[] = RuleErrorBuilder::message(
+					sprintf(
+						'Call to method %s() of private/internal class %s.',
+						$methodReflection->getName(),
+						$methodReflection->getDeclaringClass()->getName()
+					)
+				)
+	                ->identifier('no.private.method')
+	                ->build();
 				continue;
 			}
 
@@ -124,11 +129,15 @@ class CallToPrivateStaticMethodRule implements Rule
 				continue;
 			}
 
-			$errors[] = sprintf(
-				'Call to private/internal method %s() of class %s.',
-				$methodReflection->getName(),
-				$methodReflection->getDeclaringClass()->getName()
-			);
+			$errors[] = RuleErrorBuilder::message(
+				sprintf(
+					'Call to private/internal method %s() of class %s.',
+					$methodReflection->getName(),
+					$methodReflection->getDeclaringClass()->getName()
+				)
+			)
+                ->identifier('no.private.method')
+                ->build();
 		}
 
 		return $errors;

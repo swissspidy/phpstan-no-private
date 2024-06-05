@@ -10,6 +10,7 @@ use PHPStan\Broker\ClassNotFoundException;
 use PHPStan\Reflection\MissingMethodFromReflectionException;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\FileTypeMapper;
 use function sprintf;
 
@@ -81,11 +82,17 @@ class CallToPrivateMethodRule implements Rule
 					continue;
 				}
 
-				return [sprintf(
-					'Call to private/internal method %s() of class %s.',
-					$methodReflection->getName(),
-					$methodReflection->getDeclaringClass()->getName()
-				)];
+				return [
+					RuleErrorBuilder::message(
+						sprintf(
+							'Call to private/internal method %s() of class %s.',
+							$methodReflection->getName(),
+							$methodReflection->getDeclaringClass()->getName()
+						)
+					)
+		                ->identifier('no.private.method')
+		                ->build()
+				];
 			} catch (ClassNotFoundException $e) {
 				// Other rules will notify if the class is not found
 			} catch (MissingMethodFromReflectionException $e) {

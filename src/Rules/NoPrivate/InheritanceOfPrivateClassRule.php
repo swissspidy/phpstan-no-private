@@ -8,6 +8,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\ClassNotFoundException;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
 use function sprintf;
 
 /**
@@ -57,16 +58,24 @@ class InheritanceOfPrivateClassRule implements Rule
 			}
 
 			if (!$class->isAnonymous()) {
-				$errors[] = sprintf(
-					'Class %s extends private/internal class %s.',
-					$className,
-					$parentClassName
-				);
+				$errors[] = RuleErrorBuilder::message(
+					sprintf(
+						'Class %s extends private/internal class %s.',
+						$className,
+						$parentClassName
+					)
+				)
+                    ->identifier('no.private.class')
+                    ->build();
 			} else {
-				$errors[] = sprintf(
-					'Anonymous class extends private/internal class %s.',
-					$parentClassName
-				);
+				$errors[] = RuleErrorBuilder::message(
+					sprintf(
+						'Anonymous class extends private/internal class %s.',
+						$parentClassName
+					)
+				)
+                    ->identifier('no.private.class')
+                    ->build();
 			}
 		} catch (ClassNotFoundException $e) {
 			// Other rules will notify if the interface is not found
