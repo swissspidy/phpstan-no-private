@@ -77,7 +77,7 @@ class InstantiationOfPrivateClassRule implements Rule
 			}
 
 			$resolvedPhpDoc = $class->getResolvedPhpDoc();
-			if (!$resolvedPhpDoc || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+			if ($resolvedPhpDoc === null || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				continue;
 			}
 

@@ -51,7 +51,7 @@ class CallToPrivateFunctionRule implements Rule
 
 		$docComment = $function->getDocComment();
 
-		if (!$docComment) {
+		if ($docComment === null) {
 			return [];
 		}
 
