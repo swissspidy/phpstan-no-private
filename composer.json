@@ -11,6 +11,7 @@
 	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+		"nikic/php-parser": "^v5.3.1",
 		"php-parallel-lint/php-parallel-lint": "^1.4",
 		"phpstan/phpstan-phpunit": "^2.0",
 		"phpstan/phpstan-strict-rules": "^2.0",
