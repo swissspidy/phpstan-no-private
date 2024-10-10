@@ -53,7 +53,7 @@ class InheritanceOfPrivateClassRule implements Rule
 		try {
 			$parentClass = $this->reflectionProvider->getClass($parentClassName);
 			$resolvedPhpDoc = $parentClass->getResolvedPhpDoc();
-			if (!$resolvedPhpDoc || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+			if ($resolvedPhpDoc === null || !PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				return $errors;
 			}
 

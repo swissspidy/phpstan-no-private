@@ -58,7 +58,7 @@ class CallToPrivateMethodRule implements Rule
 
 				$docComment = $methodReflection->getDocComment();
 
-				if (!$docComment) {
+				if ($docComment === null) {
 					continue;
 				}
 

@@ -16,8 +16,6 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.2"
-          - "7.3"
           - "7.4"
           - "8.0"
           - "8.1"
@@ -40,10 +38,6 @@ jobs:
 
       - name: "Install dependencies"
         run: "composer install --no-interaction --no-progress"
-
-      - name: "Downgrade PHPUnit"
-        if: matrix.php-version == '7.2' || matrix.php-version == '7.3'
-        run: "composer require --dev phpunit/phpunit:^7.5.20 --update-with-dependencies"
 
       - name: "Lint"
         run: "composer lint"
@@ -83,12 +77,11 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "7.2"
-          - "7.3"
           - "7.4"
           - "8.0"
           - "8.1"
           - "8.3"
+          - "8.4"
         dependencies:
           - "lowest"
           - "highest"
@@ -120,10 +113,6 @@ jobs:
         if: ${{ matrix.dependencies == 'highest' }}
         run: "composer update --no-interaction --no-progress"
 
-      - name: "Downgrade PHPUnit"
-        if: matrix.php-version == '7.2' || matrix.php-version == '7.3'
-        run: "composer require --dev phpunit/phpunit:^7.5.20 --update-with-dependencies"
-
       - name: "Tests"
         run: "composer test"
         if: ${{ ! matrix.coverage }}
@@ -147,13 +136,12 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "7.2"
-          - "7.3"
           - "7.4"
           - "8.0"
           - "8.1"
           - "8.2"
           - "8.3"
+          - "8.4"
         dependencies:
           - "lowest"
           - "highest"
@@ -177,10 +165,6 @@ jobs:
       - name: "Install highest dependencies"
         if: ${{ matrix.dependencies == 'highest' }}
         run: "composer update --no-interaction --no-progress"
-
-      - name: "Downgrade PHPUnit"
-        if: matrix.php-version == '7.2' || matrix.php-version == '7.3'
-        run: "composer require --dev phpunit/phpunit:^7.5.20 --update-with-dependencies"
 
       - name: "PHPStan"
         run: "composer phpstan"

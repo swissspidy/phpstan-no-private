@@ -90,7 +90,7 @@ class CallToPrivateStaticMethodRule implements Rule
 			}
 
 			$resolvedPhpDoc = $class->getResolvedPhpDoc();
-			if ($resolvedPhpDoc && PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
+			if ($resolvedPhpDoc !== null && PrivateAnnotationHelper::isPrivate($resolvedPhpDoc)) {
 				$errors[] = RuleErrorBuilder::message(
 					sprintf(
 						'Call to method %s() of private/internal class %s.',
@@ -105,7 +105,7 @@ class CallToPrivateStaticMethodRule implements Rule
 
 			$docComment = $methodReflection->getDocComment();
 
-			if (!$docComment) {
+			if ($docComment === null) {
 				continue;
 			}
 
