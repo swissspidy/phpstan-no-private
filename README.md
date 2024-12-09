@@ -1,4 +1,4 @@
-# Detect pseudo-private code elements
+# Detect usage of pseudo-private code elements
 
 [![Build](https://github.com/swissspidy/phpstan-no-private/workflows/Build/badge.svg)](https://github.com/swissspidy/phpstan-no-private/actions)
 [![Latest Stable Version](https://poser.pugx.org/swissspidy/phpstan-no-private/v/stable)](https://packagist.org/packages/swissspidy/phpstan-no-private)
@@ -20,7 +20,7 @@ If you also install [phpstan/extension-installer](https://github.com/phpstan/ext
 
 If you don't want to use `phpstan/extension-installer`, include rules.neon in your project's PHPStan config:
 
-```neone
+```neon
 includes:
     - vendor/swissspidy/phpstan-no-private/rules.neon
 ```
