@@ -1,6 +1,3 @@
-parameters:
-	deprecationRulesInstalled: true
-
 rules:
 	- Swissspidy\PHPStan\Rules\NoPrivate\CallToPrivateFunctionRule
 	- Swissspidy\PHPStan\Rules\NoPrivate\CallToPrivateMethodRule
