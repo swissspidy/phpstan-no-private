@@ -21,11 +21,9 @@ use function sprintf;
 class InstantiationOfPrivateClassRule implements Rule
 {
 
-	/** @var ReflectionProvider */
-	private $reflectionProvider;
+	private ReflectionProvider $reflectionProvider;
 
-	/** @var RuleLevelHelper */
-	private $ruleLevelHelper;
+	private RuleLevelHelper $ruleLevelHelper;
 
 	public function __construct(ReflectionProvider $reflectionProvider, RuleLevelHelper $ruleLevelHelper)
 	{

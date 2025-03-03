@@ -19,11 +19,9 @@ use function sprintf;
 class CallToPrivateFunctionRule implements Rule
 {
 
-	/** @var ReflectionProvider */
-	private $reflectionProvider;
+	private ReflectionProvider $reflectionProvider;
 
-	/** @var FileTypeMapper */
-	private $fileTypeMapper;
+	private FileTypeMapper $fileTypeMapper;
 
 	public function __construct(ReflectionProvider $reflectionProvider, FileTypeMapper $fileTypeMapper)
 	{

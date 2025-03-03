@@ -24,14 +24,11 @@ use function sprintf;
 class CallToPrivateStaticMethodRule implements Rule
 {
 
-	/** @var ReflectionProvider */
-	private $reflectionProvider;
+	private ReflectionProvider $reflectionProvider;
 
-	/** @var RuleLevelHelper */
-	private $ruleLevelHelper;
+	private RuleLevelHelper $ruleLevelHelper;
 
-	/** @var FileTypeMapper */
-	private $fileTypeMapper;
+	private FileTypeMapper $fileTypeMapper;
 
 	public function __construct(ReflectionProvider $reflectionProvider, RuleLevelHelper $ruleLevelHelper, FileTypeMapper $fileTypeMapper)
 	{
