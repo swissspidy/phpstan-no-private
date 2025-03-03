@@ -73,7 +73,7 @@
 	<rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
 		<properties>
 			<property name="searchAnnotations" value="true"/>
-			<property name="namespacesRequiredToUse" value=""/>
+			<property name="namespacesRequiredToUse" type="array"/>
 			<property name="allowPartialUses" value="true"/>
 			<property name="allowFallbackGlobalFunctions" value="false"/>
 			<property name="allowFallbackGlobalConstants" value="false"/>
