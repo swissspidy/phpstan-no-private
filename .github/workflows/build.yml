@@ -10,6 +10,7 @@ on:
 jobs:
   lint:
     name: "Lint"
+    continue-on-error: ${{ matrix.php-version == 'nightly' }}
     runs-on: "ubuntu-latest"
 
     strategy:
@@ -21,6 +22,8 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
+          - "nightly"
 
     steps:
       - name: "Checkout"
@@ -70,6 +73,7 @@ jobs:
 
   tests:
     name: "Tests"
+    continue-on-error: ${{ matrix.php-version == 'nightly' }}
     runs-on: "ubuntu-latest"
 
     strategy:
@@ -81,6 +85,8 @@ jobs:
           - "8.1"
           - "8.3"
           - "8.4"
+          - "8.5"
+          - "nightly"
         dependencies:
           - "lowest"
           - "highest"
@@ -129,6 +135,7 @@ jobs:
 
   static-analysis:
     name: "PHPStan"
+    continue-on-error: ${{ matrix.php-version == 'nightly' }}
     runs-on: "ubuntu-latest"
 
     strategy:
@@ -141,6 +148,8 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
+          - "nightly"
         dependencies:
           - "lowest"
           - "highest"
