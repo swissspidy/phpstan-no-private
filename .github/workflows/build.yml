@@ -93,10 +93,10 @@ jobs:
         coverage:
           - false
         include:
-          - php: "8.2"
+          - php-version: "8.2"
             coverage: true
             dependencies: "lowest"
-          - php: "8.2"
+          - php-version: "8.2"
             coverage: true
             dependencies: "highest"
 
